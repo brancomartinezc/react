@@ -1,26 +1,55 @@
-import React, { useState } from "react"
-import { Carousel } from "flowbite-react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import world from "../assets/world2.png"
-import address from "../assets/address1.png"
+import React, { useEffect, useState } from "react"
 
-function PropertyCard() {
+function PropertyCard(props) {
+    const propId = props.id;
+    const status = props.status;
+    const price = props.price;
+    const area = props.area;
+    const rooms = props.rooms;
+    const beds = props.beds;
+    const baths = props.baths;
+    const address = props.address;
+    const cityId = props.city;
+
+    const unitedAPI = 'https://branco-api-iaw.herokuapp.com';
+    const [city, setCity] = useState("");
+    const [cityPhoto, setCityPhoto] = useState("");
+
+    const getCity = async () => {
+        const response = await fetch(`${unitedAPI}/cities/${cityId}`);
+        setCity(await response.json());
+    }
+
+    const getCityPhoto = async () => {
+        const response = await fetch(`${unitedAPI}/properties/photos/${propId}`);
+        setCityPhoto(await response.json());
+    }
+
+    useEffect(() => {
+        getCity();
+        getCityPhoto();
+    }, [])
+
     return (
-        <div class="max-w-lg overflow-hidden rounded bg-gray-800 text-gray-200 shadow-lg">
-            <Carousel slide={false}>
-                <img src="https://i.ibb.co/HqyXrmq/img1.webp" alt="..." />
-                <img src="https://i.ibb.co/kKChfG9/img2.webp" alt="..." />
-            </Carousel>
-            <div className="px-6 py-4">
-                
-                <div className="mb-2 text-xl font-bold">685 S New Hampshire Ave</div>
-                <div className="text-l mb-2 font-bold">Los Angeles, California, US</div>
-            </div>
-            <div className="px-6 pt-4 pb-2">
-                <span className="mr-2 mb-2 inline-block rounded-full bg-gray-700 px-3 py-1 text-sm font-semibold text-gray-100">92 mt2</span>
-                <span className="mr-2 mb-2 inline-block rounded-full bg-gray-700 px-3 py-1 text-sm font-semibold text-gray-100"> 5 Rooms</span>
-                <span className="mr-2 mb-2 inline-block rounded-full bg-gray-700 px-3 py-1 text-sm font-semibold text-gray-100">2 Beds</span>
-                <span className="mr-2 mb-2 inline-block rounded-full bg-gray-700 px-3 py-1 text-sm font-semibold text-gray-100">2 Baths</span>
+        <div className="card mb-3 rounded-0">
+            <img src={!cityPhoto ? "" : cityPhoto[0].path}/>
+            <div className="sale-rent-label">for {status}</div>
+            <div className="price-label">$ {price}</div>
+            <div className="card-body">
+                <div className="row justify-content-left mt-4">
+                    <div className="col-md-6"><img id="area-icon" src="@/assets/icons/area1.png" alt="..."/>{area} mt2</div>
+                    <div className="col-md-6"><img src="@/assets/icons/room1.png" alt="..."/>{rooms} Rooms</div>
+                </div>
+                <div className="row justify-content-left">
+                    <div className="col-md-6"><img src="@/assets/icons/bed1.png" alt="..."/>{beds} Bedrooms</div>
+                    <div className="col-md-6"><img src="@/assets/icons/bath1.png" alt="..."/>{baths} Baths</div>
+                </div>
+                <div className="row justify-content-left mt-4">
+                    <div className="col-md-12"><img id="address-icon" src="@/assets/icons/address1.png" alt="..."/>{address}</div>
+                </div>
+                <div className="row justify-content-left mt-2">
+                    <div className="col-md-12"><img id="address-icon" src="@/assets/icons/world2.png" alt="..."/>{city.name}, {city.state}, {city.country_code}</div>
+                </div>
             </div>
         </div>
     )

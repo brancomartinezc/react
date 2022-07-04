@@ -36,3 +36,139 @@
     transform: rotate(360deg);
   }
 }
+
+.card-body{
+  font-size: 20px;
+  color: white;
+}
+
+#area-icon{
+  max-width: 35px;
+}
+
+#address-icon{
+  max-width: 30px;
+}
+
+#city-icon{
+  max-width: 30px;
+}
+
+.navbar{
+  font-family: 'Nunito'
+}
+
+#united-logo-navbar{
+  max-width:100px;
+}
+
+.nav-item{
+  font-size: 21px; 
+}
+
+.footer-style{
+  font-family: 'Nunito';
+  font-size: 20px;
+  background: rgb(41, 41, 41);
+}
+
+.united-link{
+    color: white !important;
+    font-weight: bold;
+}
+
+.sale-rent-label {
+  background-color: #29852A;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
+  color: #fff;
+  font-size: 1.1em;
+  font-weight: 700;
+  padding: 4px 8px;
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  text-transform: uppercase;
+}
+
+.price-label {
+  background-color: #29852A;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
+  color: #fff;
+  font-size: 1.1em;
+  font-weight: 700;
+  padding: 4px 8px;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  text-transform: uppercase;
+}
+
+.subtitle{
+  font-size: 40px;
+}
+
+.not-found{
+    font-size: 40px;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.city-img {
+    opacity: 0.45;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.city-data {
+    padding: 5px;
+    font-weight: 1000;
+    text-transform: uppercase;
+    font-size: 22px;
+}
+
+.search-title{
+  font-size: 43px;
+}
+
+.search-view{
+  background: #252525;
+}
+
+.category{
+  font-size: 23px;
+  color: white;
+}
+
+.label-font-size{
+  font-size: 20px;
+}
+
+.not-found{
+  font-size: 40px;
+}
+
+#price-icon{
+  max-width: 40px;
+}
+
+#status-icon{
+  max-width: 40px;
+}
+
+#type-icon{
+  max-width: 40px;
+}
+
+#search-icon{
+  max-width: 60px;
+}
+
+#search-btn{
+  font-size: 20px;
+  font-weight: bold;
+}
